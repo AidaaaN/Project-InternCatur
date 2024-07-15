@@ -15,7 +15,7 @@ return new class extends Migration
         //
         Schema::create($this->table, function(Blueprint $table){
             $table->integer('id_kwitanse',true,false)->nullable(false);
-            $table->integer('id_user',false.false)->nullable(false);
+            $table->integer('id_user',false.false)->index('IdKwitansiUser')->nullable(false);
             $table->string('nama_penerima',100)->nullable(false);
             $table->decimal('nominal',10,2,false)->nullable(false);
             $table->date('tgl_kwitansi',0)->nullable(false);

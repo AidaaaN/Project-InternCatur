@@ -15,11 +15,11 @@ return new class extends Migration
         //
         Schema::create($this-> table, function(Blueprint $table){
             $table->integer('id_arsip',true,false)->nullable(false);
-            $table->integer('id_user',false,false)->index('IdArsipUser')->nullable(false);
+            $table->integer('id_user',false,false)->nullable(false);
             $table->string('nama_surat',100)->nullable(false);
             $table->date('tgl_arsip',0)->nullable(false);
             //foreign key
-            $table->foreign('id_user','ConstraintIdUser')->on('user')->references('id_user')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_user')->on('user')->references('id_user')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
