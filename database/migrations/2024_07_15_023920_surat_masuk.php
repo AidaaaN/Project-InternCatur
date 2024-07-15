@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create($this->table,function(Blueprint $table){
             $table->integer('id_surat_msk',true,false)->nullable(false);
             $table->integer('id_user',false,false)->nullable(false);
-            $table->varchar('nama_surat',100)->nullable(false);
+            $table->string('nama_surat',100)->nullable(false);
             $table->dateTime('tgl_msk',0)->default('2024-01-01')->nullable(false);
             $table->text('perihal')->nullable(true);
             //foreign key

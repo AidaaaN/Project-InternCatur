@@ -15,7 +15,7 @@ return new class extends Migration
         //
         Schema::create($this->table ,function(Blueprint $table){
             $table->integer('id_surat_invoice',true,false)->nullable(false);
-            $table->varchar('kode_surat',100)->nullable(false);
+            $table->string('kode_surat',100)->nullable(false);
             $table->integer('id_user',false,false)->nullable(false);
             $table->text('isi_surat')->nullable(false);
             //foreign key

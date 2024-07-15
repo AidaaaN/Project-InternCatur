@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create($this->table,function(Blueprint $table){
             $table->integer('id_surat_nda',true,false)->nullable(false);
             $table->integer('id_user',false,false)->nullable(false);
-            $table->vachar('kode_surat',100)->nullable(false);
+            $table->string('kode_surat',100)->nullable(false);
             $table->text('isi_surat')->nullable(false);
             //foreign key
             $table->foreign('id_user',)->on('user')->references('id_user')->onUpdate('cascade')->onDelete('cascade');

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('id_surat_keluar',true,false)->nullable(false);
             $table->integer('id_user',false,false)->nullable(false);
             $table->dateTime('tgl_keluar',0)->default('2024-01-01')->nullable(false);
-            $table->varchar('nama_surat',100)->nullable(false);
+            $table->string('nama_surat',100)->nullable(false);
             $table->text('perihal')->nullable(true);
             //foreign key
             $table->foreign('id_user',)->on('user')->references('id_user')->onUpdate('cascade')->onDelete('cascade');
