@@ -74,7 +74,7 @@ class arsipController extends Controller
         $data = [
             'arsipDetil' => arsipModel::where('id_arsip',$request->id_arsip)->first()
         ];
-        return view('barang.edit',$data);
+        return view('arsip.edit',$data);
     }
     public function delete(Request $request)
     {
