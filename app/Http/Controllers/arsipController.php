@@ -24,4 +24,54 @@ class arsipController extends Controller
         ];
         return view('arsip.index', $data);
     }
+    public function tambah()
+    {
+        return view('surat.tambah');
+    }
+    public function simpan(Request $request)
+    {
+        $data = $request->validated();
+        if($data):
+            if(isset($request->id_arsip)):
+                //proses update 
+                $perintah = arsipModel::where('id_arsip',$request->id_arsip)->update($data);
+                if($perintah):
+                    $pesan = [
+                        'status' => 'sucess',
+                        'pesan' => 'Data surat berhasil diperbarui'
+                    ];
+                else:
+                    $pesan = [
+                        'status' => 'error ',
+                        'pesan' => 'Data surat gagal diperbarui'
+                    ];
+                endif;
+            else:
+                //proses tambah data baru
+                $dataBaru = arsipModel::create($data);
+                if($dataBaru):
+                    $pesan = [
+                        'status' => 'sucess',
+                        'pesan' => 'Data surat baru berhasil ditambahkan kedalam database'
+                    ];
+                else:
+                    $pesan = [
+                        'status' => 'error ',
+                        'pesan' => 'Data surat gagal ditambahkan'
+                    ];
+                endif;
+            endif;
+        endif;
+    }
+    public function update(Request $request)
+    {
+        $data = [
+            'arsipDetil' => arsipModel::where('id_arsip',$request->id_arsip)->first()
+        ];
+        return view('barang.edit',$data);
+    }
+    public function delete()
+    {
+
+    }
 }
