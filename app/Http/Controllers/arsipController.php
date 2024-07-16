@@ -61,7 +61,13 @@ class arsipController extends Controller
                     ];
                 endif;
             endif;
+        else:
+            $pesan = [
+                'status' => 'error ',
+                'pesan' => 'Proses validasi gagal'
+            ];
         endif;
+        return response()->json($pesan);
     }
     public function update(Request $request)
     {
