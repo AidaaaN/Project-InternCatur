@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\arsipRequest;
 use App\Models\arsipModel;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class arsipController extends Controller
     {
         return view('surat.tambah');
     }
-    public function simpan(Request $request)
+    public function simpan(arsipRequest $request)
     {
         $data = $request->validated();
         if($data):
@@ -74,7 +75,7 @@ class arsipController extends Controller
         $data = [
             'arsipDetil' => arsipModel::where('id_arsip',$request->id_arsip)->first()
         ];
-        return view('barang.edit',$data);
+        return view('arsip.edit',$data);
     }
     public function delete(Request $request)
     {
