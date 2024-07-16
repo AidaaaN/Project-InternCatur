@@ -76,8 +76,20 @@ class arsipController extends Controller
         ];
         return view('barang.edit',$data);
     }
-    public function delete()
+    public function delete(Request $request)
     {
-
+        $aksiHapus = arsipModel::where('id_arsip',$request->id_arsip)->delete();
+        if($aksiHapus):
+            $pesan = [
+                'status' => 'sucess',
+                'pesan' => 'Data berhasil dihapus'
+            ];
+        else:
+            $pesan = [
+                'status' => 'error ',
+                'pesan' => 'Data gagal dihapus'
+            ];
+        endif;
+        return response()->json($pesan);
     }
 }
