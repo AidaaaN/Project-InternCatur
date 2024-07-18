@@ -70,16 +70,16 @@
                 if(response.data.success){
                     window.location.href = response.data.redirect_url;
                 }else{
-                    swal.fire('Gagal Login,Username/Password salah','','error');
+                    Swal.fire('Gagal Login,Username/Password salah','','error');
                 }
 
-                }).catch(function(eror){
+                }).catch(function(error){
                      
                     if(error.response.status === 422){
 
-                        swal.fire(error.response.data.message,'','error');
+                        Swal.fire(error.response.data.message,'','error');
                     }else{
-                        swal.fire('Gagal Login,Username/Password salah','','error');
+                        Swal.fire('Gagal Login,Username/Password salah','','error');
                     }
                 });
             });

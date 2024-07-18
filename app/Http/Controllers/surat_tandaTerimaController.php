@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class surat_tandaTerimaController extends Controller
 {
-    protected $id_surat_tandaTerima_pekerjaan;
+    protected $id_surat_tandaTerima;
     protected $kode_surat;
     protected $isi_surat;
     protected $surat_tandaTerimaModel;
