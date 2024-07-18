@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\arsipRequest;
 use App\Models\arsipModel;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class arsipController extends Controller
     {
         return view('surat.tambah');
     }
-    public function simpan(Request $request)
+    public function simpan(arsipRequest $request)
     {
         $data = $request->validated();
         if($data):
