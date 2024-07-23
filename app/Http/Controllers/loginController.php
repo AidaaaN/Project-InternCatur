@@ -11,10 +11,10 @@ class loginController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'login',
+            'title' => 'Login & Registration Form',
             'appTitle' => 'Persuratan'
         ];
-        return view('login.login', $data);
+        return view('login.index', $data);
     }
     public function check(Request $request){
         $postData = $request->validate(
