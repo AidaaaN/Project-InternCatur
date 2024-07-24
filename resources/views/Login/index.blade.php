@@ -51,43 +51,44 @@
     </div>
 </body>
 <footer>
-<script>
+    <script>
+        function showPS() {
+            var x = document.getElementById("pwShow");
+            var y = document.getElementsByClassName("uil");
+            if (x.type === "password") {
+                x.type = "text";
+                y.toggle("uil-eye");
+            } else {
+                x.type = "password";
+            }
+        }
 
-function showPS() {
-  var x = document.getElementById("pwShow");
-  var y = document.getElementsByClassName("uil");
-  if (x.type === "password") {
-    x.type = "text";
-    y.toggle("uil-eye");
-  } else {
-    x.type = "password";
-  }
-}
-function eyes(x) {
+        function eyes(x) {
 
-}
+        }
 
-const container = document.querySelector(".container"),
-     pwShowHide = document.querySelectorAll(".showHidePw"),
-     pwFields= document.querySelectorAll(".password");
+        const container = document.querySelector(".container"),
+            pwShowHide = document.querySelectorAll(".showHidePw"),
+            pwFields = document.querySelectorAll(".password");
 
-     //js code to show/hide password and change icon
-     pwShowHide.forEach(eyeIcon =>{
-        eyeIcon.addEventListener("click", ()=>{
-            pwFields.forEach(pwFields =>{
-                if(pwFields.type ==="password"){
-                    pwFields.type = "text";
+        //js code to show/hide password and change icon
+        pwShowHide.forEach(eyeIcon => {
+            eyeIcon.addEventListener("click", () => {
+                pwFields.forEach(pwFields => {
+                    if (pwFields.type === "password") {
+                        pwFields.type = "text";
 
-                    
-                }else{
-                    pwFields.type = "password";
-                }
+
+                    } else {
+                        pwFields.type = "password";
+                    }
                 })
             })
         })
-        $(".uil").click(function () { $(".uil").toggleClass("uil-eye-slash uil-eye"); });
-
-</script>
+        $(".uil").click(function() {
+            $(".uil").toggleClass("uil-eye-slash uil-eye");
+        });
+    </script>
 </footer>
 
 </html>
