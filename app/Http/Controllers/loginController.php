@@ -30,7 +30,7 @@ class loginController extends Controller
                 return response(
                     [
                         'success'=>true,
-                        'redirect_url' => '/arsip',
+                        'redirect_url' => '/dashboard',
                         'pesan'=>'login berhasil'
                     ],
                     200);
