@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
 Route::prefix('/login')->group(function(){
     Route::get('/',[loginController::class,'index'])->name('login.index');
     Route::post('/check',[loginController::class,'check'])->name('login.check');
