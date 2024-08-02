@@ -641,6 +641,7 @@
         },
         {
             "name": "guzzlehttp/guzzle",
+<<<<<<< HEAD
             "version": "7.9.2",
             "source": {
                 "type": "git",
@@ -651,6 +652,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d281ed313b989f213357e3be1a179f02196ac99b",
                 "reference": "d281ed313b989f213357e3be1a179f02196ac99b",
+=======
+            "version": "7.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "a629e5b69db96eb4939c1b34114130077dd4c6fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/a629e5b69db96eb4939c1b34114130077dd4c6fc",
+                "reference": "a629e5b69db96eb4939c1b34114130077dd4c6fc",
+>>>>>>> 1d3efd3f9226eb248e3a92b72331eded5c3d0859
                 "shasum": ""
             },
             "require": {
@@ -747,7 +760,11 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/guzzle/guzzle/tree/7.9.2"
+=======
+                "source": "https://github.com/guzzle/guzzle/tree/7.9.1"
+>>>>>>> 1d3efd3f9226eb248e3a92b72331eded5c3d0859
             },
             "funding": [
                 {
@@ -763,7 +780,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2024-07-24T11:22:20+00:00"
+=======
+            "time": "2024-07-19T16:19:57+00:00"
+>>>>>>> 1d3efd3f9226eb248e3a92b72331eded5c3d0859
         },
         {
             "name": "guzzlehttp/promises",
@@ -1052,6 +1073,7 @@
         },
         {
             "name": "laravel/framework",
+<<<<<<< HEAD
             "version": "v11.18.1",
             "source": {
                 "type": "git",
@@ -1062,6 +1084,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/b19ba518c56852567e99fbae9321bc436c2cc5a8",
                 "reference": "b19ba518c56852567e99fbae9321bc436c2cc5a8",
+=======
+            "version": "v11.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "42f505a0c8afc0743f73e70bec08e641e2870bd6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/42f505a0c8afc0743f73e70bec08e641e2870bd6",
+                "reference": "42f505a0c8afc0743f73e70bec08e641e2870bd6",
+>>>>>>> 1d3efd3f9226eb248e3a92b72331eded5c3d0859
                 "shasum": ""
             },
             "require": {
@@ -1254,7 +1288,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
+<<<<<<< HEAD
             "time": "2024-07-26T10:39:29+00:00"
+=======
+            "time": "2024-07-23T16:33:27+00:00"
+>>>>>>> 1d3efd3f9226eb248e3a92b72331eded5c3d0859
         },
         {
             "name": "laravel/prompts",
@@ -1569,6 +1607,7 @@
         },
         {
             "name": "league/commonmark",
+<<<<<<< HEAD
             "version": "2.5.1",
             "source": {
                 "type": "git",
@@ -1579,6 +1618,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/ac815920de0eff6de947eac0a6a94e5ed0fb147c",
                 "reference": "ac815920de0eff6de947eac0a6a94e5ed0fb147c",
+=======
+            "version": "2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/commonmark.git",
+                "reference": "0026475f5c9a104410ae824cb5a4d63fa3bdb1df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/0026475f5c9a104410ae824cb5a4d63fa3bdb1df",
+                "reference": "0026475f5c9a104410ae824cb5a4d63fa3bdb1df",
+>>>>>>> 1d3efd3f9226eb248e3a92b72331eded5c3d0859
                 "shasum": ""
             },
             "require": {
@@ -1671,7 +1722,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2024-07-24T12:52:09+00:00"
+=======
+            "time": "2024-07-22T18:18:14+00:00"
+>>>>>>> 1d3efd3f9226eb248e3a92b72331eded5c3d0859
         },
         {
             "name": "league/config",
