@@ -10,7 +10,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/logout',[loginController::class,'logout'])->name('logout');  
+Route::get('/logout',[loginController::class,'logout'])->name('logout');  
 
 
 Route::prefix('/login')->group(function(){

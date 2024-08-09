@@ -29,26 +29,26 @@
             <span class="material-icons-sharp">home</span>
             <h3>Beranda</h3>
           </a></li>
-        <li><a href="#">
+        <li><a href="suratMasuk">
             <span class="material-icons-sharp">contact_mail</span>
             <h3>Surat Masuk</h3>
           </a></li>
-        <li><a href="#">
+        <li><a href="suratKeluar">
             <span class="material-icons-sharp">drafts</span>
             <h3>Surat Keluar</h3>
           </a></li>
-        <li><a href="#">
+        <li><a href="arsip">
             <span class="material-icons-sharp">archive</span>
             <h3>Arsip</h3>
           </a></li>
-        <li><a href="#">
+        <li><a href="add template">
             <span class="material-icons-sharp">add</span>
             <h3>Add Template</h3>
           </a></li>
       </ul>
 
       <ul class="logout">
-        <li><a href="#">
+        <li><a href="{!!route('logout')!!}">
             <span class="material-icons-sharp">logout</span>
             <h3>Logout</h3>
           </a></li>
