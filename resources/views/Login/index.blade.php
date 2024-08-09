@@ -64,7 +64,7 @@
                 if(response.data.success){
                     window.location.href = response.data.redirect_url;
                 }else{
-                    Swal.fire('Gagal Login,Username/Password salah','','error');
+                    Swal.fire('Berhasil Masuk','','success');
                 }
 
                 }).catch(function(error){
