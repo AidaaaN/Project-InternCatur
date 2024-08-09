@@ -17,7 +17,7 @@ Route::prefix('/login')->group(function(){
     Route::get('/',[loginController::class,'index'])->name('login.index');
     Route::post('/check',[loginController::class,'check'])->name('login.check');
 });
-Route::prefix('/dashboard')->middleware('admin')->group(function(){
+    Route::prefix('/dashboard')->middleware('admin')->group(function(){
     Route::get('/',[dashboardController::class ,'index'])->name('dashboard');
 });
 
