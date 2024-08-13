@@ -37,7 +37,7 @@
             <span class="material-icons-sharp">drafts</span>
             <h3>Surat Keluar</h3>
           </a></li>
-        <li><a href="arsip">
+        <li><a href="#">
             <span class="material-icons-sharp">archive</span>
             <h3>Arsip</h3>
           </a></li>
@@ -48,7 +48,7 @@
       </ul>
 
       <ul class="logout">
-        <li><a href="logout">
+        <li><a href="#">
             <span class="material-icons-sharp">logout</span>
             <h3>Logout</h3>
           </a></li>
