@@ -30,7 +30,7 @@ class loginController extends Controller
                 return response(
                     [
                         'success'=>true,
-                        'redirect_url' => '/arsip',
+                        'redirect_url' => '/dashboard',
                         'pesan'=>'login berhasil'
                     ],
                     200);
@@ -46,6 +46,6 @@ class loginController extends Controller
     }
     public function logout(){
         Auth::logout();
-        route('login.login');
+        return redirect()->to('/login',302);
     }
 }
