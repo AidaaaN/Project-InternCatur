@@ -29,7 +29,7 @@
             <span class="material-icons-sharp">home</span>
             <h3>Beranda</h3>
           </a></li>
-        <li><a href="suratmasuk">
+        <li><a href="{!!route('suratmasuk.index')!!}">
             <span class="material-icons-sharp">contact_mail</span>
             <h3>Surat Masuk</h3>
           </a></li>
@@ -37,7 +37,7 @@
             <span class="material-icons-sharp">drafts</span>
             <h3>Surat Keluar</h3>
           </a></li>
-        <li><a href="arsip">
+        <li><a href="{!!route('arsip.index')!!}">
             <span class="material-icons-sharp">archive</span>
             <h3>Arsip</h3>
           </a></li>
