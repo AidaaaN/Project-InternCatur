@@ -22,6 +22,6 @@ class surat_keluarController extends Controller
         $data = [
             'surat_keluar' => surat_keluarModel::all()
         ];
-        return view('surat_keluar.index', $data);
+        return view('suratkeluar.index', $data);
     }
 }
