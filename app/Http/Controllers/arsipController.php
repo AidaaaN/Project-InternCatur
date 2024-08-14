@@ -38,7 +38,7 @@ class arsipController extends Controller
                 $perintah = arsipModel::where('id_arsip',$request->id_arsip)->update($data);
                 if($perintah):
                     $pesan = [
-                        'status' => 'sucess',
+                        'status' => 'success',
                         'pesan' => 'Data surat berhasil diperbarui'
                     ];
                 else:
@@ -52,7 +52,7 @@ class arsipController extends Controller
                 $dataBaru = arsipModel::create($data);
                 if($dataBaru):
                     $pesan = [
-                        'status' => 'sucess',
+                        'status' => 'success',
                         'pesan' => 'Data surat baru berhasil ditambahkan kedalam database'
                     ];
                 else:
@@ -82,7 +82,7 @@ class arsipController extends Controller
         $aksiHapus = arsipModel::where('id_arsip',$request->id_arsip)->delete();
         if($aksiHapus):
             $pesan = [
-                'status' => 'sucess',
+                'status' => 'success',
                 'pesan' => 'Data berhasil dihapus'
             ];
         else:
@@ -92,5 +92,12 @@ class arsipController extends Controller
             ];
         endif;
         return response()->json($pesan);
+    }
+    public function dataArsip(Request $request, arsipModel $element)
+    {
+        if ($request->ajax()) :
+            $data = $element::with('stok')->get();
+            return DataTables::of($data)->toJson();
+        endif;
     }
 }
