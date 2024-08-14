@@ -22,6 +22,6 @@ class surat_masukController extends Controller
         $data = [
             'surat_masuk' => surat_masukModel::all()
         ];
-        return view('surat_masuk.index', $data);
+        return view('suratmasuk.index', $data);
     }
 }

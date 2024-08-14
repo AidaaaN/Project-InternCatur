@@ -29,11 +29,11 @@
             <span class="material-icons-sharp">home</span>
             <h3>Beranda</h3>
           </a></li>
-        <li><a href="suratmasuk">
+        <li><a href="suratMasuk">
             <span class="material-icons-sharp">contact_mail</span>
             <h3>Surat Masuk</h3>
           </a></li>
-        <li><a href="#">
+        <li><a href="suratKeluar">
             <span class="material-icons-sharp">drafts</span>
             <h3>Surat Keluar</h3>
           </a></li>
