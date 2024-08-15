@@ -10,6 +10,6 @@ class surat_masukModel extends Model
     use HasFactory;
     protected $table = 'surat_masuk';
     protected $primaryKey = 'id_surat_msk';
-    protected $fillable = ['nama_surat','tgl_masuk','perihal'];
+    protected $fillable=['nama_surat','nomor_surat','tgl_keluar','tujuan_surat','jenis_surat','keterangan'];
     
 }
