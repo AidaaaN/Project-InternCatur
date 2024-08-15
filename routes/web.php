@@ -21,7 +21,7 @@ Route::prefix('/login')->group(function(){
 
 Route::prefix('/arsip')->middleware('admin')->group(function(){
     Route::get('/', [arsipController::class,'index'])->name('arsip.index');
-    
+    Route::get('/data',[arsipController::class,'dataArsip'])->name('arsip.data');
 });
 Route::prefix('/suratMasuk')->middleware('admin')->group(function(){
     Route::get('/', [surat_masukController::class,'index'])->name('suratmasuk.index');
