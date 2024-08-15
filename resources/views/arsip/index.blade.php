@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(["resources/css/style4.css", "resources/js/app.js"])
     <title>ARSIP</title>
-    <link rel="stylesheet"/>
+    <link rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 </head>
 
@@ -25,7 +25,7 @@
                     </section>
 
                     <section class="card__body">
-                        <table class="table DataTable">
+                        <table class="table DataTable table-hovered table-bordered">
                             <thead>
                                 <tr>
                                     <th> No </th>
@@ -40,10 +40,11 @@
                             </thead>
                             <tbody>
                                 <tr>
+
                                 </tr>
                             </tbody>
                         </table>
-                       
+
                     </section>
             </body>
 
@@ -55,18 +56,30 @@
         var table = $('.DataTable').DataTable({
             processing: true,
             serverSide: true,
+            "language": {
+                "paginate": {
+                "first": "",
+                "last": "",
+                "previous": "", // Kosongkan atau ganti teks
+                "next": "" // Kosongkan atau ganti teks
+                }
+            },
             ajax: "{!!route('arsip.data')!!}",
-            /*columns: [{
+            columns: [{
                     data: 'id_arsip',
                     name: 'id_arsip',
                 },
                 {
-                    data: 'nama_arsip',
-                    name: 'nama_arsip'
+                    data: 'nama_surat',
+                    name: 'nama_surat'
                 },
                 {
-                    data: 'tgl_surat',
-                    name: 'tgl_surat'
+                    data: 'nomor_surat',
+                    name: 'nomor_surat'
+                },
+                {
+                    data: 'tgl_arsip',
+                    name: 'tgl_arsip'
                 },
                 {
                     data: 'tujuan_surat',
@@ -77,16 +90,16 @@
                     name: 'jenis_surat'
                 },
                 {
-                    data: 'keterangan_surat',
-                    name: 'keterangan_surat'
+                    data: 'keterangan',
+                    name: 'keterangan'
                 },
 
                 {
                     render: function(data, type, row) {
-                        return "<btn class='btn btn-primary editBtn' data-bs-toggle='modal' data-bs-target='#modalForm' attr-href='{!!url('/arsip/edit/" + row.id_arsip + "')!!}'><i class='bi bi-pencil'></i> Edit</btn> <btn class='btn btn-danger btnHapusArsip' attr-id='" + row.id_arsip + "'><i class='bi bi-trash'></i> Hapus</btn>";
+                        return " <btn class='btn btn-danger btnHapusArsip' attr-id='" + row.id_arsip + "'><i class='bi bi-trash'></i> Hapus</btn>";
                     }
                 }
-            ]*/
+            ]
         });
     </script>
 </footer>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\surat_serahTerima_pekerjaanModel;
 use Illuminate\Http\Request;
 
-class surat_tandaTerima_pekerjaan extends Controller
+class surat_serahTerima_pekerjaan extends Controller
 {
     protected $id_surat_serahTerima_pekerjaan;
     protected $kode_surat;

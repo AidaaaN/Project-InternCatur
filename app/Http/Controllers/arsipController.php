@@ -28,10 +28,19 @@ class arsipController extends Controller
     {
         return view('surat.tambah');
     }
-    public function simpan(Request $request) {}
-    public function update(Request $request) {}
-    public function delete(Request $request) {}
-    public function data(Request $request)
+    public function simpan(Request $request) 
+    {
+
+    }
+    public function update(Request $request) 
+    {
+
+    }
+    public function delete(Request $request) 
+    {
+
+    }
+    public function dataArsip(Request $request)
     {
         if ($request->ajax()) {
             $data = $this->arsipModel->get();
