@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\surat_keluarModel;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class surat_keluarController extends Controller
 {
@@ -19,9 +20,14 @@ class surat_keluarController extends Controller
     }
     public function index()
     {
-        $data = [
-            'surat_keluar' => surat_keluarModel::all()
-        ];
-        return view('suratkeluar.index', $data);
+       
+        return view('suratkeluar.index');
+    }
+    public function dataSuratKeluar(Request $request)
+    {
+        if($request->ajax()){
+            $data=$this->surat_keluarModel->get();
+            return DataTables::of($data)->toJson(); 
+        }
     }
 }

@@ -6,6 +6,7 @@ import './bootstrap';
 import jQuery from 'jquery';
 window.$ = window.jQuery =jQuery;
 
+import { Modal } from 'bootstrap';
 
 //Sweetalert2 loader
 //npm install swetalert2

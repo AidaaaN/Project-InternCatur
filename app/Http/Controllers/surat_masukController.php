@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\surat_masukModel;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class surat_masukController extends Controller
 {
@@ -19,9 +20,20 @@ class surat_masukController extends Controller
     }
     public function index()
     {
-        $data = [
-            'surat_masuk' => surat_masukModel::all()
-        ];
-        return view('suratmasuk.index', $data);
+        
+        return view('suratmasuk.index');
+    }
+    
+    public function tambah()
+    {
+        return view('suratmasuk.tambah');
+    }
+
+    public function dataSuratMsk(Request $request)
+    {
+        if($request->ajax()){
+            $data = $this->surat_masukModel->get();
+            return DataTables::of($data)->toJson();
+        }
     }
 }

@@ -25,9 +25,12 @@ Route::prefix('/arsip')->middleware('admin')->group(function(){
 });
 Route::prefix('/suratMasuk')->middleware('admin')->group(function(){
     Route::get('/', [surat_masukController::class,'index'])->name('suratmasuk.index');
+    Route::get('/data',[surat_masukController::class,'dataSuratMsk'])->name('suratmasuk.data');
+    Route::get('/tambah',[surat_masukController::class,'tambah'])->name('suratmasuk.tambah');
 
 });
 Route::prefix('/suratKeluar')->middleware('admin')->group(function(){
     Route::get('/', [surat_keluarController::class,'index'])->name('suratkeluar.index');
+    Route::get('/data',[surat_keluarController::class,'dataSuratKeluar'])->name('suratkeluar.data');
 
 });

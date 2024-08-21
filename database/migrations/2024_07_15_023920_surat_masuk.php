@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('tujuan_surat',100)->nullable(false);
             $table->string('jenis_surat',100)->nullable(false);
             $table->string('keterangan',100)->nullable(false);
+            $table->binary('file_surat')->nullable(false);
             //foreign key
             $table->foreign('id_user',)->on('user')->references('id_user')->onUpdate('cascade')->onDelete('cascade');
         });
