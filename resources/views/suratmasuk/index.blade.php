@@ -15,8 +15,6 @@
         <div class="table_header">
             <div>
                 <div class="table_section">
-                    <input placeholder="Search" />
-                    <button class="cari">🔎 Search</button>
                     <button class="btn btn-success btnTambahFile" data-bs-title="Tambah File Surat" data-bs-target="#modalForm" data-bs-toggle="modal" attr-href="{{route('suratmasuk.tambah')}}"><i class="bi bi-plus"></i>Tambah</button>
                     <h2>Data Surat Masuk</h2>
                 </div>
@@ -142,7 +140,7 @@
                 axios.get(link).then(response => {
                     $("#modalForm .modal-body").html(response.data);
                     $('.autoDropdownSurat').select2({
-                        placeholder: 'Pilih barang yang ingin dibeli',
+                        placeholder: 'Pilih Surat Yang Ingin Diinput',
                         theme: 'bootstrap-5',
                         cache: true,
                         dropdownParent: $('#modalForm'),
