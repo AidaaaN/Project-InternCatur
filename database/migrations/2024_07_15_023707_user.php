@@ -15,9 +15,10 @@ return new class extends Migration
         //
         Schema::create($this->table,function(Blueprint $table){
             $table->integer('id_user',true,false)->nullable(false);
-            $table->string('username',100)->unique('IndexUsername')->nullable(false);
+            $table->string('email')->unique();
             $table->string('password',100)->nullable(false);
             $table->enum('level',['admin']);
+            $table->rememberToken();
             $table->timestamps();
         });
     }
