@@ -9,12 +9,8 @@ use App\Http\Controllers\surat_keluarController;
 use App\Http\Controllers\surat_masukController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/logout', [loginController::class, 'logout'])->name('logout');
-Route::get('/words', function (){
-    return view(('words.index'));
-});
 
-Route::get('/logout',[loginController::class,'logout'])->name('logout');  
+Route::get('/logout', [loginController::class, 'logout'])->name('logout');
 
 
 Route::prefix('/login')->group(function () {
@@ -47,4 +43,4 @@ Route::prefix('/suratKeluar')->middleware('admin')->group(function () {
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
