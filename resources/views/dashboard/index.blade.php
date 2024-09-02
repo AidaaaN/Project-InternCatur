@@ -41,7 +41,7 @@
             <span class="material-icons-sharp">archive</span>
             <h3>Arsip</h3>
           </a></li>
-        <li><a href="#">
+        <li><a href="words">
             <span class="material-icons-sharp">add</span>
             <h3>Add Template</h3>
           </a></li>

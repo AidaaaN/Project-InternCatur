@@ -35,7 +35,7 @@
                             <label for="logCheck" class="text">Remember me</label>
                         </div>
 
-                        <a href="#" class="text">Forgot password?</a>
+                        <a href="{!!route('password.request')!!}" method="POST" class="text forgot">Forgot password?</a>
                     </div>
 
                     <div class="input-field button">
@@ -51,33 +51,53 @@
     </div>
 </body>
 <footer>
-<script type="module">
-        $('.button').on('click',function(a){
+    <script type="module">
+        $('.button').on('click', function(a) {
             //a.preventDefault();
             //alert('clicked);
-            axios.post('login/check',{
-                username : $('#userName').val(),
-                password : $('#passWord').val(),
-                _token : '{{csrf_token()}}'
-            }).then(function(response){
+            axios.post('login/check', {
+                email: $('#userName').val(),
+                password: $('#passWord').val(),
+                _token: '{{csrf_token()}}'
+            }).then(function(response) {
 
-                if(response.data.success){
+                if (response.data.success) {
                     window.location.href = response.data.redirect_url;
-                }else{
-                    Swal.fire('Berhasil Masuk','','success');
+                } else {
+                    Swal.fire('Berhasil Masuk', '', 'success');
                 }
 
-                }).catch(function(error){
-                     
-                    if(error.response.status === 422){
+            }).catch(function(error) {
 
-                        Swal.fire(error.response.data.message,'','error');
-                    }else{
-                        Swal.fire('Gagal Login,Username/Password salah','','error');
-                    }
-                });
+                if (error.response.status === 422) {
+
+                    Swal.fire(error.response.data.message, '', 'error');
+                } else {
+                    Swal.fire('Gagal Login,Username/Password salah', '', 'error');
+                }
             });
-</script>
+        });
+        /*$('.forgot').on('click', function(e) {
+            e.preventDefault(); // Prevents default form submission or link behavior
+
+            axios.post('/login/forgot-password', {
+                username: $('#userName').val(), // Assuming the user input is for email or username
+                _token: '{{ csrf_token() }}' // CSRF token for security
+            }).then(function(response) {
+                if (response.data.success) {
+                    window.location.href = response.data.redirect_url; // Redirect on success
+                } else {
+                    Swal.fire('Reset Link Sent', 'Please check your email for the reset link.', 'success');
+                }
+            }).catch(function(error) {
+                if (error.response.status === 422) {
+                    Swal.fire(error.response.data.message, '', 'error'); // Validation error message
+                } else {
+                    Swal.fire('Failed to Send Reset Link', 'Please check your input and try again.', 'error');
+                }
+            });
+        });*/
+    </script>
 
 </footer>
 

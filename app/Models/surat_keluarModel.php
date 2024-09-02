@@ -10,6 +10,6 @@ class surat_keluarModel extends Model
     use HasFactory;
     protected $table = 'surat_keluar';
     protected $primaryKey = 'id_surat_keluar';
-    protected $fillable = ['nama_surat','tgl_keluar', 'perihal'];
+    protected $fillable=['nama_surat','nomor_surat','tgl_keluar','tujuan_surat','jenis_surat','keterangan'];
     
 }

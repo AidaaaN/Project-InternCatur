@@ -10,6 +10,6 @@ class arsipModel extends Model
     use HasFactory;
     protected $table='arsip';
     protected $primaryKey='id_arsip';
-    protected $fillable=['nama_surat','tgl_surat'];
+    protected $fillable=['nama_surat','nomor_surat','tgl_arsip','tujuan_surat','jenis_surat','keterangan'];
     
 }

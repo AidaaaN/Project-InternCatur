@@ -35,7 +35,7 @@ input{
 }
 
 
-main.table {
+main.card {
     width: 82vw;
     height: 90vh;
     background-color: #F8EDE3;
@@ -47,7 +47,7 @@ main.table {
     overflow: hidden;
 }
 
-.table__header {
+.card__header {
     width: 100%;
     height: 8%;
     padding: .6rem 1rem;    
@@ -57,7 +57,7 @@ main.table {
     font-size: 12px;
 }
 
-.table__body {
+.card__body {
     width: 95%;
     max-height: calc(89% - 1.6rem) ;
     background-color: #C7B7A3;
@@ -69,18 +69,18 @@ main.table {
     overflow: auto;
 }
 
-.table__body::-webkit-scrollbar{
+.card__body::-webkit-scrollbar{
     width: 0.5rem;
     height: 0.5rem;
 }
 
-.table__body::-webkit-scrollbar-thumb{
+.card__body::-webkit-scrollbar-thumb{
     border-radius: .5rem;
     background-color: #0004;
     visibility: hidden;
 }
 
-.table__body:hover::-webkit-scrollbar-thumb{
+.card__body:hover::-webkit-scrollbar-thumb{
     visibility: visible;
 }
 
