@@ -14,8 +14,6 @@
     <div class="table">
         <div class="table_header">
         </div>
-        <input placeholder="Search" />
-        <button class="cari">🔎 Search</button>
         <div class="table_section">
 
             <body>
