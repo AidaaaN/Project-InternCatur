@@ -45,15 +45,16 @@ body h2 {
    
 }
 
-input{
+.btnTambahFile{
     padding: 10px 10px;
     margin: 10px 10px;
     outline: none;
     border: 1px solid maroon;
     border-radius: 6px;
-    color: maroon;
-    margin-left: 580px;
+    color: #fff;
+    margin-left: 950px;
     margin-bottom: 10px;
+    left: 80px;
 }
 
 
@@ -126,6 +127,7 @@ button{
     cursor: pointer;
     padding: 10px;
     color: #fff;
+    background-color: maroon;
 }
 
 td button:nth-child(1){
@@ -140,19 +142,14 @@ td button:nth-child(3){
     background-color: maroon;
 }
 
-.btnTambahFile{
-    padding: 10px 20px;
-    color: white;
-    background-color: maroon;
-    margin-top: 9px;
+
+.dataTables_wrapper .dataTables_filter {
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
-.cari {
-    padding: 9px 20px;
-    color: white;
-    background-color: maroon;
-    margin-top: 7px;
-}
+
 
 
 tbody tr:nth-child(even) {
@@ -178,3 +175,4 @@ tbody tr:hover {
     max-height: 90%;
     overflow: auto; /* Tambahkan scroll jika konten melebihi ukuran modal */
 }
+
