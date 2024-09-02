@@ -7,6 +7,9 @@ use App\Http\Controllers\surat_keluarController;
 use App\Http\Controllers\surat_masukController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/templatesurat', function (){
+    return view(('templatesurat.index'));
+});
 
 Route::get('/logout',[loginController::class,'logout'])->name('logout');  
 

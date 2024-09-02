@@ -85,7 +85,7 @@
 
         <div class="cover">
           <div class="table-header">
-            <a class="surat nda" href="suratNDA">
+            <a class="surat nda" href="templatesurat">
               <img src="img/cover.jpeg">
             </a>
           </div>
