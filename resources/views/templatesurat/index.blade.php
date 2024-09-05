@@ -20,14 +20,15 @@
           <option value="pdf">Save as pdf</option>
         </select>
 
-        <select>
-          <option value="Arial">Arial</option>
-          <option value="Veranda">Veranda</option>
-          <option value="Times New">Times New</option>
-          <option value="Garamond">Garamond</option>
-          <option value="Georgia">Georgia</option>
-          <option value="Curier">Curier</option>
-          <option value="Cursive">Cursive</option>
+        <!-- Dropdown untuk memilih font -->
+        <select id="font-family" onchange="changeFontFamily()">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Garamond">Garamond</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Cursive">Cursive</option>
         </select>
 
         <select onchange="formatDoc('formatBlock', this.value); this.selectedIndex=0;">
@@ -87,6 +88,19 @@
 
 </body>
 <footer>
+  <!-- Script untuk mengubah ukuran font -->
+  <script>
+    function formatDoc(command, value) {
+      document.execCommand(command, false, value);
+    }
+  </script>
+  <!-- Script untuk mengubah font family -->
+  <script>
+    function changeFontFamily() {
+      var fontFamily = document.getElementById("font-family").value;
+      document.getElementById("editor").style.fontFamily = fontFamily;
+    }
+  </script>
   <script type="module">
     document.getElementById('undoBtn').addEventListener('click', function() {
       document.execCommand('undo', false, null);

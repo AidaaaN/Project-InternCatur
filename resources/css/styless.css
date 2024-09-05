@@ -30,23 +30,27 @@ a {
     border-radius: 8px;
     overflow: hidden;
 }
+
 .toolbar {
     padding: 16px;
     background: #eee;
 }
+
 .toolbar .head {
     display: flex;
     grid-gap: 10px;
     margin-bottom: 15px;
     flex-wrap: wrap;
 }
-.toolbar .head > input {
+
+.toolbar .head>input {
     max-width: 100px;
     padding: 6px 10px;
     border-radius: 6px;
     border: 1px solid #ddd;
     outline: none;
 }
+
 .toolbar .head select {
     background: #fff;
     border: 2px solid #eee;
@@ -54,6 +58,7 @@ a {
     outline: none;
     cursor: pointer;
 }
+
 .toolbar .head .color {
     background: #fff;
     border: 1px solid #ddd;
@@ -65,9 +70,11 @@ a {
     grid-gap: 6px;
     padding: 0px 10px;
 }
+
 .toolbar .head .color span {
     font-size: 14px;
 }
+
 .toolbar .head .color input {
     border: none;
     padding: 0;
@@ -76,18 +83,21 @@ a {
     background: #fff;
     cursor: pointer;
 }
+
 .toolbar .head .color input::-moz-color-swatch {
     width: 20px;
     height: 20px;
     border: none;
     border-radius: 50%;
 }
+
 .toolbar .btn-toolbar {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     grid-gap: 10px;
 }
+
 .toolbar .btn-toolbar button {
     background: #fff;
     border: 1px solid #ddd;
@@ -100,15 +110,24 @@ a {
     justify-content: center;
     font-size: 16px;
 }
+
 .toolbar .btn-toolbar button:hover {
     background: #f3f3f3;
 }
+
 #content {
     padding: 16px;
     outline: none;
     max-height: 50vh;
     overflow: auto;
 }
+
 #show-code[data-active="true"] {
-	background: #eee;
+    background: #eee;
+}
+
+#editor  {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
 }
