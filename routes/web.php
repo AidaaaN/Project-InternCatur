@@ -7,9 +7,10 @@ use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\surat_keluarController;
 use App\Http\Controllers\surat_masukController;
+use App\Http\Controllers\surat_ndaController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/templatesurat', function (){
+Route::get('/templatesurat', function () {
     return view(('templatesurat.index'));
 });
 
@@ -24,7 +25,6 @@ Route::prefix('/login')->group(function () {
     Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
     Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
     Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
-   
 });
 Route::prefix('/dashboard')->middleware('admin')->group(function () {
     Route::get('/', [dashboardController::class, 'index'])->name('dashboard');
@@ -43,7 +43,8 @@ Route::prefix('/suratKeluar')->middleware('admin')->group(function () {
     Route::get('/', [surat_keluarController::class, 'index'])->name('suratkeluar.index');
     Route::get('/data', [surat_keluarController::class, 'dataSuratKeluar'])->name('suratkeluar.data');
 });
-
-
-
-
+Route::prefix('/suratNda')->middleware('admin')->group(function () {
+    Route::get('/nda/create', [surat_ndaController::class, 'create'])->name('nda.create');
+    Route::post('/nda', [surat_ndaController::class, 'store'])->name('nda.store');
+    Route::get('/nda/show', [surat_ndaController::class, 'show'])->name('nda.show');
+});
