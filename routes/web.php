@@ -8,6 +8,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\surat_keluarController;
 use App\Http\Controllers\surat_masukController;
 use App\Http\Controllers\surat_ndaController;
+use App\Models\surat_ndaModel;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/templatesurat', function () {
@@ -47,4 +48,6 @@ Route::prefix('/suratNda')->middleware('admin')->group(function () {
     Route::get('/nda/create', [surat_ndaController::class, 'create'])->name('nda.create');
     Route::post('/nda', [surat_ndaController::class, 'store'])->name('nda.store');
     Route::get('/nda/show', [surat_ndaController::class, 'show'])->name('nda.show');
+    Route::post('/surat', [surat_ndaModel::class, 'store']);
+    Route::get('/surat/{id}', [surat_ndaModel::class, 'show']);
 });

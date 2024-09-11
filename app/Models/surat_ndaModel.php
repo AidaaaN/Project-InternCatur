@@ -10,6 +10,5 @@ class surat_ndaModel extends Model
     use HasFactory;
     protected $table = 'surat_nda';
     protected $primaryKey = 'id_surat_nda';
-    protected $fillable = ['kode_surat','isi_surat'];
-    
+    protected $fillable = ['kode_surat', 'isi_surat'];
 }

@@ -7,6 +7,7 @@
   @vite(['resources/css/styless.css', 'resources/js/app.js'])
   <title>Surat NDA</title>
   <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
@@ -22,13 +23,13 @@
 
         <!-- Dropdown untuk memilih font -->
         <select id="font-family" onchange="changeFontFamily()">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana</option>
-            <option value="Times New Roman">Times New Roman</option>
-            <option value="Garamond">Garamond</option>
-            <option value="Georgia">Georgia</option>
-            <option value="Courier New">Courier New</option>
-            <option value="Cursive">Cursive</option>
+          <option value="Arial">Arial</option>
+          <option value="Verdana">Verdana</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Garamond">Garamond</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Courier New">Courier New</option>
+          <option value="Cursive">Cursive</option>
         </select>
 
         <select onchange="formatDoc('formatBlock', this.value); this.selectedIndex=0;">
@@ -53,38 +54,53 @@
           <option value="7">Big</option>
         </select>
 
-        <div class="color">
-          <span>Text Color</span>
-          <input type="color" oninput="formatDoc('foreColor', this.value);">
-        </div>
-        <div class="color">
-          <span>Background Color</span>
-          <input type="color" oninput="formatDoc('hiliteColor', this.value);">
-        </div>
+        <!-- Opsi penomoran surat -->
+        <select id="suratNumber" onchange="generateNomorSurat()">
+          <option value="" selected="" hidden="" disabled="">Nomor Surat</option>
+          <option value="1">001/NDA/2024</option>
+          <option value="2">002/NDA/2024</option>
+          <option value="3">003/NDA/2024</option>
+          <!-- Tambahkan opsi lainnya sesuai kebutuhan -->
+        </select>
 
-        <div class="btn-toolbar">
-          <button id="undoBtn"><i class='bx bx-undo'></i></button>
-          <button id="redoBtn"><i class='bx bx-redo'></i></button>
-          <button id="boldBtn"><i class='bx bx-bold'></i></button>
-          <button id="underlineBtn"><i class='bx bx-underline'></i></button>
-          <button id="italicBtn"><i class='bx bx-italic'></i></button>
-          <button id="strikethroughBtn"><i class='bx bx-strikethrough'></i></button>
-          <button id="justifyleftBtn"><i class='bx bx-align-left'></i></button>
-          <button id="justifycenterBtn"><i class='bx bx-align-middle'></i></button>
-          <button id="justifyrightBtn"><i class='bx bx-align-right'></i></button>
-          <button id="justifyfullBtn"><i class='bx bx-align-justify'></i></button>
-          <button id="insertorderedlistBtn"><i class='bx bx-list-ol'></i></button>
-          <button id="insertunorderedlistBtn"><i class='bx bx-list-ul'></i></button>
-          <button id="addLinkBtn"><i class='bx bx-link'></i></button>
-          <button id="unlinkBtn"><i class='bx bx-unlink'></i></button>
-          <button id="show-code" data-active="false">&lt;/&gt;</button>
-        </div>
+        <!-- Tombol Download dan Preview -->
+        <button id="downloadBtn">Download PDF</button>
+        <button id="previewBtn">Preview</button>
       </div>
 
-      <div id="editor" contenteditable="true" style="border: 1px solid #ccc; padding: 10px; min-height: 200px;">
-        Moy Gemoy
+      <div class="color">
+        <span>Text Color</span>
+        <input type="color" oninput="formatDoc('foreColor', this.value);">
+      </div>
+      <div class="color">
+        <span>Background Color</span>
+        <input type="color" oninput="formatDoc('hiliteColor', this.value);">
+      </div>
+
+      <div class="btn-toolbar">
+        <button id="undoBtn"><i class='bx bx-undo'></i></button>
+        <button id="redoBtn"><i class='bx bx-redo'></i></button>
+        <button id="boldBtn"><i class='bx bx-bold'></i></button>
+        <button id="underlineBtn"><i class='bx bx-underline'></i></button>
+        <button id="italicBtn"><i class='bx bx-italic'></i></button>
+        <button id="strikethroughBtn"><i class='bx bx-strikethrough'></i></button>
+        <button id="justifyleftBtn"><i class='bx bx-align-left'></i></button>
+        <button id="justifycenterBtn"><i class='bx bx-align-middle'></i></button>
+        <button id="justifyrightBtn"><i class='bx bx-align-right'></i></button>
+        <button id="justifyfullBtn"><i class='bx bx-align-justify'></i></button>
+        <button id="insertorderedlistBtn"><i class='bx bx-list-ol'></i></button>
+        <button id="insertunorderedlistBtn"><i class='bx bx-list-ul'></i></button>
+        <button id="addLinkBtn"><i class='bx bx-link'></i></button>
+        <button id="unlinkBtn"><i class='bx bx-unlink'></i></button>
+        <button id="show-code" data-active="false">&lt;/&gt;</button>
       </div>
     </div>
+
+    <div id="editor" contenteditable="true" style="border: 1px solid #ccc; padding: 10px; min-height: 200px;">
+      <h3 id="nomor-surat">Nomor Surat: </h3>
+      <p>Isi dari surat NDA di sini.</p>
+    </div>
+  </div>
 
 </body>
 <footer>
@@ -94,6 +110,7 @@
       document.execCommand(command, false, value);
     }
   </script>
+
   <!-- Script untuk mengubah font family -->
   <script>
     function changeFontFamily() {
@@ -101,6 +118,32 @@
       document.getElementById("editor").style.fontFamily = fontFamily;
     }
   </script>
+
+  <!-- Fungsi untuk generate nomor surat otomatis dengan tanggal dan bulan -->
+  <script>
+    function convertToRoman(num) {
+      const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
+      return romanNumerals[num - 1]; // Karena array dimulai dari 0, kurangi 1 dari num
+    }
+
+    function generateNomorSurat() {
+      // Dapatkan nomor surat terakhir dari localStorage atau mulai dari 1 jika belum ada
+      let lastNumber = localStorage.getItem('lastSuratNumber') || 1;
+      let date = new Date();
+      let tahun = date.getFullYear(); // Tahun saat ini
+      let bulan = convertToRoman(date.getMonth() + 1); // Bulan dalam angka Romawi
+      //let tanggal = ('0' + date.getDate()).slice(-2); // Tanggal saat ini, dengan dua digit
+
+      let nomorSuratBaru = ('000' + lastNumber).slice(-3) + '/NDA/' + bulan + '/' + tahun; // Format nomor surat
+
+      // Tampilkan nomor surat di dalam editor
+      document.getElementById('nomor-surat').textContent = 'Nomor Surat: ' + nomorSuratBaru;
+
+      // Simpan nomor surat yang baru di localStorage
+      localStorage.setItem('lastSuratNumber', parseInt(lastNumber) + 1);
+    }
+  </script>
+
   <script type="module">
     document.getElementById('undoBtn').addEventListener('click', function() {
       document.execCommand('undo', false, null);
@@ -165,65 +208,54 @@
       }
     }
 
+    // Panggil fungsi generate nomor surat saat halaman di-load
     document.addEventListener('DOMContentLoaded', function() {
-      function formatDoc(command, value) {
-        const selection = window.getSelection();
-        if (selection.rangeCount > 0) {
-          const range = selection.getRangeAt(0);
-          const span = document.createElement('span');
-          span.style[command === 'foreColor' ? 'color' : 'backgroundColor'] = value;
-          range.surroundContents(span);
-        }
-      }
+      generateNomorSurat();
     });
 
-    /*const content = document.getElementById('content');
+    // Fungsi untuk mengunduh konten editor sebagai PDF
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+      var element = document.getElementById('editor');
+      var opt = {
+        margin: 1,
+        filename: document.getElementById('filename').value + '.pdf',
+        image: {
+          type: 'jpeg',
+          quality: 0.98
+        },
+        html2canvas: {
+          scale: 2
+        },
+        jsPDF: {
+          unit: 'in',
+          format: 'letter',
+          orientation: 'portrait'
+        }
+      };
+      html2pdf().from(element).set(opt).save();
+    });
 
-    content.addEventListener('mouseenter', function() {
-      const a = content.querySelectorAll('a');
-      a.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-          content.setAttribute('contenteditable', false);
-          item.target = '_blank';
-        })
-        item.addEventListener('mouseleave', function() {
-          content.setAttribute('contenteditable', true);
-        })
-      })
-    })
-
-    const showCode = document.getElementById('show-code');
-    let active = false;
-
-    showCode.addEventListener('click', function() {
-      showCode.dataset.active = !active;
-      active = !active
-      if (active) {
-        content.textContent = content.innerHTML;
-        content.setAttribute('contenteditable', false);
-      } else {
-        content.innerHTML = content.textContent;
-        content.setAttribute('contenteditable', true);
-      }
-    })
-
-    const filename = document.getElementById('filename');
-
-    function fileHandle(value) {
-      if (value === 'new') {
-        content.innerHTML = '';
-        filename.value = 'untitled';
-      } else if (value === 'txt') {
-        const blob = new Blob([content.innerText])
-        const url = URL.createObjectURL(blob)
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `${filename.value}.txt`;
-        link.click();
-      } else if (value === 'pdf') {
-        html2pdf(content).save(filename.value);
-      }
-    }*/
+    // Fungsi untuk preview PDF (sebelum unduh)
+    document.getElementById('previewBtn').addEventListener('click', function() {
+      var element = document.getElementById('editor');
+      var opt = {
+        margin: 1,
+        filename: document.getElementById('filename').value + '.pdf',
+        image: {
+          type: 'jpeg',
+          quality: 0.98
+        },
+        html2canvas: {
+          scale: 2
+        },
+        jsPDF: {
+          unit: 'in',
+          format: 'letter',
+          orientation: 'portrait'
+        }
+      };
+      html2pdf().from(element).set(opt).outputPdf('dataurlnewwindow');
+    });
   </script>
 </footer>
 

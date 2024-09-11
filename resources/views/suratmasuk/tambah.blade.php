@@ -16,7 +16,6 @@
         @csrf
         <label for="file">Pilih file untuk diunggah:</label>
         <input type="file" name="file" id="file" required>
-        <button type="submit">Unggah</button>
     </form>
 
     @if($errors->any())
